@@ -1,0 +1,8 @@
+# Build configuration for https://cirrus-ci.org
+
+freebsd_instance:
+  image_family: freebsd-14-1
+task:
+  install_script: pkg install -y perl5 p5-Test-Pod p5-Test-Pod-Coverage
+  build_script: perl Makefile.PL && make -j4
+  test_script: make -j4 test
